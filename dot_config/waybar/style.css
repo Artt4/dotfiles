@@ -1,0 +1,214 @@
+@import "colors.css";
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font Propo", "Inter", sans-serif;
+    font-size: 14px;
+}
+
+/* Tooltips - Darker background for contrast */
+tooltip {
+    background-color: @bg0_h; /* Deepest Nord shade */
+    border: 1px solid @dr_blue;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 8px;
+}
+
+/* Main Bar Modules */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @bg0; 
+    border: 2px solid @dr_blue; /* Subtle blue border */
+    border-radius: 99px;
+    color: @fg;
+    padding: 0px 5px;
+    margin: 0px 10px; /* Centered margin slightly better */
+    font-weight: 500;
+}
+
+/* Workspaces Container */
+#workspaces {
+    background-color: @bg1;
+    margin: 3px 3px;
+    padding: 2px 2px;
+    border-radius: 12px;
+    border: 1px solid transparent; 
+    min-width: 1rem;
+
+}
+
+/* Workspace: Base button - set your "standard" spacing here */
+#workspaces button {
+    background-color: @bg2; /* Slightly lighter than bar bg */
+    padding: 0px 6px;
+    color: @fg4;
+    border-radius: 10px;
+    margin: 0px 2px;          /* ← use the same margin as active/visible */
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+    min-width: 1rem;
+}
+
+/* Workspace: Something is open but not focused */
+#workspaces button.visible {
+    color: @blue;
+    font-weight: 700;
+    border-radius: 15px;
+    border: 1px solid @blue;
+}
+
+#workspaces button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+/* Workspace: Current focused */
+#workspaces button.active {
+    background-color: @blue;
+    color: @bg0;
+    font-weight: 800;
+    border-radius: 15px;
+    border: 1px solid @blue;
+}
+
+/* Workspace: No windows open */
+#workspaces button.empty {
+    color: @gray;
+    font-weight: 400;
+}
+
+#custom-weather { 
+	color: @blue;
+    padding: 0 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 0px;
+}
+
+
+#mpris {
+	color: #1DB954;
+    padding: 0px 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 3px;
+}
+
+#custom-updates { 
+    color: @green; /* Fixed from @magenta */
+    padding: 0 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 0px;
+}
+
+#custom-updates.uptodate {
+    color: @blue;
+}
+
+#custom-updates.loading {
+    color: @blue;
+}
+
+#custom-updates.standard {
+    color: @yellow;
+}
+
+#custom-updates.critical {
+    color: @red;
+    font-weight: bold;
+}
+
+#network { 
+    color: @green; /* Nord Aurora Green */
+    min-width: 190px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 3px;
+}      
+
+#memory { 
+    color: @yellow;
+    padding: 0 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 3px;
+}
+
+#pulseaudio { 
+    color: @aqua;
+    padding: 0 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 3px;
+}
+
+#clock { 
+    color: @white; /* Fixed from @magenta */
+    padding: 0 5px;
+    font-weight: 700;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 0px;
+}
+
+#custom-notification { 
+    color: @red;
+    padding: 0 5px;
+}
+
+#tray {
+    color: @fg;
+    padding: 0px 10px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px 0px;
+}
+
+
+#tray menu {
+    background-color: @bg0_h;
+    color: @fg;
+    text-shadow: none;
+    padding: 5px;
+    border: 1px solid @dr_blue;
+    border-radius: 8px
+}
+
+tooltip {
+    background-color: @bg0_h; /* Deepest Nord shade */
+    border: 1px solid @dr_blue;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 8px;
+}
+
+#taskbar {
+  background-color: @bg1;
+  border-radius: 12px;
+  margin: 3px 3px;
+}
+
+#taskbar button {
+  padding: 2px 2px;
+  margin: 3px 3px;
+  border-radius: 14px;
+  transition: background 0.3s ease;
+}
+
+#taskbar button.active {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#taskbar button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+

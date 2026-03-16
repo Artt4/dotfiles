@@ -1,0 +1,287 @@
+[
+    // MAIN MONITOR (DP-3)
+    {
+    	"spacing": 2,
+        "output": "DP-3",
+        "layer": "bottom",
+        "position": "bottom",
+        "margin-bottom": 5,
+        "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
+        "modules-center": ["custom/weather","mpris","custom/updates"],
+        "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "clock", "custom/notification"],
+
+		"wlr/taskbar": {
+		    "format": "{icon}", // Keep it tiny
+		    "tooltip-format": "{title}", // Hover to see the full name
+		    "active-first": false, // Keeps them from jumping around when you click
+		    "on-click": "activate",
+		    "on-click-right": "close"
+		},
+        "hyprland/workspaces": {
+            "persistent-workspaces": { "DP-3": [1, 2, 3, 4, 5] }
+        },
+        "custom/weather": {
+            "format": "{}",
+            "return-type": "json",
+            "exec": "/home/artturi/.config/waybar/scripts/get_weather.sh Lahti",
+            "interval": 600
+        },
+        "mpris": {
+            "player": "spotify",
+            "format": "{player_icon}  {artist} - {title}",
+            "format-stopped": " Spotify closed",
+            "player-icons": { "default": "▶", "spotify": "" },
+            "max-length": 35,
+            "ignored-players": ["firefox", "chromium", "vlc", "mpv"],
+            "on-click-right": "",
+            "on-click-middle": "",
+            "on-scroll-up": "",
+            "on-scroll-down": "",
+            "on-click": "~/.config/waybar/scripts/media.sh"
+        },
+        "group/tray-drawer": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 400,
+                "children-class": "tray-child",
+                "transition-left-to-right": true
+            },
+            "modules": [
+                "custom/tray-icon", // The "Button" that is always visible
+                "tray"             // The "Tray" that stays hidden until hover
+            ]
+        },
+        "custom/updates": {
+            "format": "{}",
+            "return-type": "json",
+            "exec": "~/.config/waybar/scripts/check_updates.sh",
+            "restart-interval": 3600,
+            "signal": 8,
+            "on-click": "kitty -e sh -c 'yay; rm -f /tmp/waybar-updates.cache; pkill -SIGRTMIN+8 waybar'",
+            "on-click-right": "rm -f /tmp/waybar-updates.cache; pkill -SIGRTMIN+8 waybar",
+            "tooltip": true
+        },
+        
+        "custom/tray-icon": {
+            "format": " 󰅁 ", // This is a Nerd Font chevron (arrow)
+            "tooltip": false
+        },
+        
+        "tray": {
+            "spacing": 10
+        },
+        "network": {
+            "format": "{ifname}",
+            "format-wifi": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+            "format-icons":[
+            	"󰤯",
+            	"󰤟",
+            	"󰤢",
+            	"󰤥",
+            	"󰤨"
+            ],
+            "format-ethernet": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+            "format-disconnected": "", //An empty format will hide the module.
+            "tooltip-format": "{ifname} via {gwaddr}\n󰇚 {bandwidthDownBits}  󰇼 {bandwidthUpBits}",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)\n󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+            "tooltip-format-ethernet": "{ifname}  󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+            "tooltip-format-disconnected": "Disconnected",
+            "max-length": 50,
+            "interval": 1
+        },
+        "memory": {
+        	"on-click": "missioncenter",
+            "interval": 30,
+            "format": "{}% ",
+            "max-length": 10
+        },
+        "pulseaudio": {
+            "format": "{volume}% {icon}",
+            "format-bluetooth": "{volume}% {icon}",
+            "format-muted": "Muted ",
+            "format-icons": {
+                "default": ["", "", ""]
+            },
+            "scroll-step": 5,
+            "on-click": "pavucontrol",
+            "ignored-sinks": ["Easy Effects Sink"]
+        },
+        "clock": {
+            "format": "{:%H:%M}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>",
+            "calendar": {
+                "mode": "month",
+                "mode-mon-col": 3,
+                "weeks-pos": "right",
+                "on-scroll": 1,
+                "format": {
+                    "months":   "<span color='#ffead3'><b>{}</b></span>",
+                    "days":     "<span color='#ecc6d9'><b>{}</b></span>", // Fixed the double </b> here
+                    "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                    "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+                }
+            },
+            "actions": {
+                "on-click": "mode",
+                "on-scroll-down": "shift_up",
+                "on-scroll-up": "shift_down"
+            }
+        },
+        "custom/notification": {
+            "exec": "swaync-client -swb",
+            "return-type": "json",
+            "format": "{icon}",
+            "format-icons": {
+                "notification": "󰂚",
+                "none": "󰂜",
+                "dnd-notification": "󰂛",
+                "dnd-none": "󰂛"
+            },
+            "on-click": "swaync-client -t -sw"
+        }
+    },
+
+    // SECONDARY MONITOR (HDMI-A-1)
+    {
+        	"spacing": 2,
+            "output": "HDMI-A-1",
+            "layer": "bottom",
+            "position": "bottom",
+            "margin-bottom": 5,
+            "modules-left": ["hyprland/workspaces","wlr/taskbar"],
+            "modules-center": ["custom/weather","mpris","custom/updates"],
+            "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "clock", "custom/notification"],
+    
+            "hyprland/workspaces": {
+                "persistent-workspaces": { "HDMI-A-1": [6, 7, 8, 9, 10] }
+            },
+            "wlr/taskbar": {
+       		    "format": "{icon}", // Keep it tiny
+       		    "tooltip-format": "{title}", // Hover to see the full name
+       		    "active-first": false, // Keeps them from jumping around when you click
+       		    "on-click": "activate",
+       		    "on-click-right": "close"
+       		},
+            "custom/weather": {
+                "format": "{}",
+                "return-type": "json",
+                "exec": "/home/artturi/.config/waybar/scripts/get_weather.sh Lahti",
+                "interval": 1800
+            },
+            "mpris": {
+                "player": "spotify",
+                "format": "{player_icon}  {artist} - {title}",
+                "format-stopped": " Spotify closed",
+                "player-icons": { "default": "▶", "spotify": "" },
+                "max-length": 35,
+                "ignored-players": ["firefox", "chromium", "vlc", "mpv"],
+                "on-click-right": "",
+                "on-click-middle": "",
+                "on-scroll-up": "",
+                "on-scroll-down": "",
+                "on-click": "~/.config/waybar/scripts/media.sh"
+            },
+            "group/tray-drawer": {
+                "orientation": "horizontal",
+                "drawer": {
+                    "transition-duration": 400,
+                    "children-class": "tray-child",
+                    "transition-left-to-right": true
+                },
+                "modules": [
+                    "custom/tray-icon", // The "Button" that is always visible
+                    "tray"             // The "Tray" that stays hidden until hover
+                ]
+            },
+            "custom/updates": {
+                "format": "{}",
+                "return-type": "json",
+                "exec": "~/.config/waybar/scripts/check_updates.sh",
+                "restart-interval": 3600,
+                "signal": 8,
+                "on-click": "kitty -e sh -c 'yay; rm -f /tmp/waybar-updates.cache; pkill -SIGRTMIN+8 waybar'",
+                "on-click-right": "rm -f /tmp/waybar-updates.cache; pkill -SIGRTMIN+8 waybar",
+                "tooltip": true
+            },
+            
+            "custom/tray-icon": {
+                "format": " 󰅁 ", // This is a Nerd Font chevron (arrow)
+                "tooltip": false
+            },
+            
+            "tray": {
+                "spacing": 10
+            },
+            "network": {
+                "format": "{ifname}",
+                "format-wifi": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+                "format-icons":[
+                	"󰤯",
+                	"󰤟",
+                	"󰤢",
+                	"󰤥",
+                	"󰤨"
+                ],
+                "format-ethernet": "󰇚 {bandwidthDownBits} 󰕒 {bandwidthUpBits}",
+                "format-disconnected": "", //An empty format will hide the module.
+                "tooltip-format": "{ifname} via {gwaddr}\n󰇚 {bandwidthDownBits}  󰇼 {bandwidthUpBits}",
+                "tooltip-format-wifi": "{essid} ({signalStrength}%)\n󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+                "tooltip-format-ethernet": "{ifname}  󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+                "tooltip-format-disconnected": "Disconnected",
+                "max-length": 50,
+                "interval": 1
+            },
+            "memory": {
+            	"on-click": "missioncenter",
+                "interval": 30,
+                "format": "{}% ",
+                "max-length": 10
+            },
+            "pulseaudio": {
+                "format": "{volume}% {icon}",
+                "format-bluetooth": "{volume}% {icon}",
+                "format-muted": "Muted ",
+                "format-icons": {
+                    "default": ["", "", ""]
+                },
+                "scroll-step": 5,
+                "on-click": "pavucontrol",
+                "ignored-sinks": ["Easy Effects Sink"]
+            },
+            "clock": {
+                "format": "{:%H:%M}",
+                "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                "calendar": {
+                    "mode": "month",
+                    "mode-mon-col": 3,
+                    "weeks-pos": "right",
+                    "on-scroll": 1,
+                    "format": {
+                        "months":   "<span color='#ffead3'><b>{}</b></span>",
+                        "days":     "<span color='#ecc6d9'><b>{}</b></span>", // Fixed the double </b> here
+                        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                        "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+                    }
+                },
+                "actions": {
+                    "on-click": "mode",
+                    "on-scroll-down": "shift_up",
+                    "on-scroll-up": "shift_down"
+                }
+            },
+            "custom/notification": {
+                "exec": "swaync-client -swb",
+                "return-type": "json",
+                "format": "{icon}",
+                "format-icons": {
+                    "notification": "󰂚",
+                    "none": "󰂜",
+                    "dnd-notification": "󰂛",
+                    "dnd-none": "󰂛"
+                },
+                "on-click": "swaync-client -t -sw"
+            }
+        }
+]
+
+

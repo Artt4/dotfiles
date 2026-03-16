@@ -1,0 +1,39 @@
+/* Nord Theme Implementation */
+
+/* Polar Night (Backgrounds - Dark to Light) */
+@define-color bg #2e3440;      /* Nord0: Main Background */
+@define-color bg0_h #242933;    /* Nord0 variant: Hard dark */
+@define-color bg0 #2e3440;      /* Nord0: Normal bg */
+@define-color bg1 #3b4252;      /* Nord1: Bg 2 */
+@define-color bg2 #434c5e;      /* Nord2: Bg 3 */
+@define-color bg3 #4c566a;      /* Nord3: Bg 4 */
+@define-color bg4 #60728a;      /* Custom: Slightly lighter UI element */
+
+/* Snow Storm (Foregrounds - Light to Dark) */
+@define-color fg #d8dee9;      /* Nord4: Main Foreground */
+@define-color fg0 #eceff4;     /* Nord6: Brightest White */
+@define-color fg1 #e5e9f0;     /* Nord5: White 2 */
+@define-color fg2 #d8dee9;     /* Nord4: White 3 */
+@define-color fg3 #c2c8d2;     /* Custom: Muted White */
+@define-color fg4 #abb1bb;     /* Custom: Darker White/Grey */
+
+/* Aurora & Frost (Accent Colors - Normal) */
+@define-color red #bf616a;     /* Nord11 */
+@define-color green #a3be8c;   /* Nord14 */
+@define-color yellow #ebcb8b;  /* Nord13 */
+@define-color blue #81a1c1;    /* Nord9 */
+@define-color purple #b48ead;  /* Nord15 */
+@define-color aqua #88c0d0;    /* Nord8 (Cyan) */
+@define-color gray #4c566a;    /* Nord3 */
+
+/* Accent Colors (Bright/Frost variants) */
+@define-color orange #d08770;    /* Nord12 */
+@define-color br_red #d06f79;    /* Lighter Nord11 */
+@define-color br_green #b1d196;  /* Lighter Nord14 */
+@define-color br_yellow #f0d399; /* Lighter Nord13 */
+@define-color br_blue #8fbcbb;   /* Nord7 (Arctic Blue) */
+@define-color br_purple #c6a4be; /* Lighter Nord15 */
+@define-color br_aqua #8fbcbb;   /* Nord7 */
+
+/* Accent Colors (Dark) */
+@define-color dr_blue #5e81ac;   /* Nord10 (Deep Sea Blue) */
