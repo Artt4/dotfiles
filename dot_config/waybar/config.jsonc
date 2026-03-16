@@ -7,7 +7,7 @@
         "position": "bottom",
         "margin-bottom": 5,
         "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
-        "modules-center": ["custom/weather","mpris","custom/updates"],
+        "modules-center": ["custom/weather","mpris","custom/updates","custom/ssh"],
         "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "clock", "custom/notification"],
 
 		"wlr/taskbar": {
@@ -38,6 +38,13 @@
             "on-scroll-up": "",
             "on-scroll-down": "",
             "on-click": "~/.config/waybar/scripts/media.sh"
+        },
+        "custom/ssh": {
+            "format": "{}",
+            "return-type": "json",
+            "interval": 5,
+            "exec": "~/.config/waybar/scripts/ssh_status.sh",
+            "tooltip": true
         },
         "group/tray-drawer": {
             "orientation": "horizontal",

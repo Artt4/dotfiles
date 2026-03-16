@@ -34,7 +34,7 @@ tooltip label {
 /* Workspaces Container */
 #workspaces {
     background-color: @bg1;
-    margin: 3px 3px;
+    margin: 3px;
     padding: 2px 2px;
     border-radius: 12px;
     border: 1px solid transparent; 
@@ -81,12 +81,33 @@ tooltip label {
     font-weight: 400;
 }
 
+#taskbar {
+  background-color: @bg1;
+  border-radius: 12px;
+  margin: 3px;
+}
+
+#taskbar button {
+  padding: 2px 2px;
+  margin: 3px 3px;
+  border-radius: 14px;
+  transition: background 0.3s ease;
+}
+
+#taskbar button.active {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#taskbar button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
 #custom-weather { 
 	color: @blue;
-    padding: 0 5px;
+    padding: 0px 5px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 0px;
+    margin: 3px;
 }
 
 
@@ -95,7 +116,7 @@ tooltip label {
     padding: 0px 5px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 3px;
+    margin: 3px;
 }
 
 #custom-updates { 
@@ -103,7 +124,17 @@ tooltip label {
     padding: 0 5px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 0px;
+    margin: 3px;
+}
+
+#custom-ssh.connected {
+    color: @red; /* Nord Frost Blue */
+    background-color: @bg1;
+    border-radius: 12px;
+    padding: 0 5px;
+    margin: 3px;
+    font-size: 1.2rem;
+
 }
 
 #custom-updates.uptodate {
@@ -128,7 +159,7 @@ tooltip label {
     min-width: 190px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 3px;
+    margin: 3px;
 }      
 
 #memory { 
@@ -136,7 +167,7 @@ tooltip label {
     padding: 0 5px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 3px;
+    margin: 3px;
 }
 
 #pulseaudio { 
@@ -144,7 +175,7 @@ tooltip label {
     padding: 0 5px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 3px;
+    margin: 3px;
 }
 
 #clock { 
@@ -153,12 +184,16 @@ tooltip label {
     font-weight: 700;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 0px;
+    margin: 3px;
 }
 
 #custom-notification { 
     color: @red;
     padding: 0 5px;
+    font-size: 1.2rem;
+    margin: 3px;
+
+
 }
 
 #tray {
@@ -166,7 +201,7 @@ tooltip label {
     padding: 0px 10px;
     background-color: @bg1;
     border-radius: 12px;
-    margin: 3px 0px;
+    margin: 3px;
 }
 
 
@@ -178,37 +213,3 @@ tooltip label {
     border: 1px solid @dr_blue;
     border-radius: 8px
 }
-
-tooltip {
-    background-color: @bg0_h; /* Deepest Nord shade */
-    border: 1px solid @dr_blue;
-    border-radius: 8px;
-}
-
-tooltip label {
-    color: @fg;
-    padding: 8px;
-}
-
-#taskbar {
-  background-color: @bg1;
-  border-radius: 12px;
-  margin: 3px 3px;
-}
-
-#taskbar button {
-  padding: 2px 2px;
-  margin: 3px 3px;
-  border-radius: 14px;
-  transition: background 0.3s ease;
-}
-
-#taskbar button.active {
-  background: rgba(34, 36, 54, 0.5);
-}
-
-#taskbar button:hover {
-  background: rgba(34, 36, 54, 0.5);
-}
-
-
