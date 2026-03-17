@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Artturi, this version runs in the background so Waybar never freezes
 CACHE_FILE="/tmp/waybar-updates.cache"
 # 10 minute cache
 CACHE_AGE=600
