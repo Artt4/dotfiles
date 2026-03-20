@@ -8,12 +8,19 @@
         "margin-bottom": 5,
         "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
         "modules-center": ["custom/weather","mpris","custom/updates","custom/ssh"],
-        "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "clock", "custom/notification"],
+        "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "hyprland/language", "clock", "custom/notification"],
 
-		"wlr/taskbar": {
-		    "format": "{icon}", // Keep it tiny
-		    "tooltip-format": "{title}", // Hover to see the full name
-		    "active-first": false, // Keeps them from jumping around when you click
+        "hyprland/language": {
+            "format": "{}",
+            "format-en": "US",
+            "format-fi": "FI",
+            "on-click": "tecla",
+            "on-click-right": "hyprctl switchxkblayout current next"
+        },
+        "wlr/taskbar": {
+		    "format": "{icon}",
+		    "tooltip-format": "{title}",
+		    "active-first": false,
 		    "on-click": "activate",
 		    "on-click-right": "close"
 		},
@@ -54,8 +61,8 @@
                 "transition-left-to-right": true
             },
             "modules": [
-                "custom/tray-icon", // The "Button" that is always visible
-                "tray"             // The "Tray" that stays hidden until hover
+                "custom/tray-icon",
+                "tray"
             ]
         },
         "custom/updates": {
@@ -70,7 +77,7 @@
         },
         
         "custom/tray-icon": {
-            "format": " 󰅁 ", // This is a Nerd Font chevron (arrow)
+            "format": " 󰅁 ",
             "tooltip": false
         },
         
@@ -123,7 +130,7 @@
                 "on-scroll": 1,
                 "format": {
                     "months":   "<span color='#ffead3'><b>{}</b></span>",
-                    "days":     "<span color='#ecc6d9'><b>{}</b></span>", // Fixed the double </b> here
+                    "days":     "<span color='#ecc6d9'><b>{}</b></span>",
                     "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
                     "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
                 }
@@ -157,15 +164,22 @@
             "margin-bottom": 5,
             "modules-left": ["hyprland/workspaces","wlr/taskbar"],
             "modules-center": ["custom/weather","mpris","custom/updates"],
-            "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "clock", "custom/notification"],
+            "modules-right": ["group/tray-drawer", "network", "memory", "pulseaudio", "hyprland/language", "clock", "custom/notification"],
     
+            "hyprland/language": {
+                "format": "{}",
+                "format-en": "US",
+                "format-fi": "FI",
+                "on-click": "tecla",
+                "on-click-right": "hyprctl switchxkblayout current next"
+            },
             "hyprland/workspaces": {
                 "persistent-workspaces": { "HDMI-A-1": [6, 7, 8, 9, 10] }
             },
             "wlr/taskbar": {
        		    "format": "{icon}", // Keep it tiny
-       		    "tooltip-format": "{title}", // Hover to see the full name
-       		    "active-first": false, // Keeps them from jumping around when you click
+       		    "tooltip-format": "{title}",
+       		    "active-first": false,
        		    "on-click": "activate",
        		    "on-click-right": "close"
        		},
@@ -196,8 +210,8 @@
                     "transition-left-to-right": true
                 },
                 "modules": [
-                    "custom/tray-icon", // The "Button" that is always visible
-                    "tray"             // The "Tray" that stays hidden until hover
+                    "custom/tray-icon",
+                    "tray"
                 ]
             },
             "custom/updates": {
@@ -212,7 +226,7 @@
             },
             
             "custom/tray-icon": {
-                "format": " 󰅁 ", // This is a Nerd Font chevron (arrow)
+                "format": " 󰅁 ",
                 "tooltip": false
             },
             
@@ -265,7 +279,7 @@
                     "on-scroll": 1,
                     "format": {
                         "months":   "<span color='#ffead3'><b>{}</b></span>",
-                        "days":     "<span color='#ecc6d9'><b>{}</b></span>", // Fixed the double </b> here
+                        "days":     "<span color='#ecc6d9'><b>{}</b></span>",
                         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
                         "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
                     }

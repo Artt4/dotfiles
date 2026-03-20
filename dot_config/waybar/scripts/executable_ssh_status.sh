@@ -1,9 +1,8 @@
 #!/bin/bash
-COUNT=$(who | grep -c "pts/")
+# This version only counts sessions that have an associated IP/Hostname (SSH)
+COUNT=$(who | grep "pts/" | grep -c "(.*)")
 
 if [ "$COUNT" -gt 0 ]; then
-    # text: The icon that stays in the bar
-    # tooltip: The detailed info shown on hover
     echo "{\"text\": \"\", \"tooltip\": \"SSH sessions: $COUNT\", \"class\": \"connected\"}"
 else
     echo "{\"text\": \"\", \"class\": \"disconnected\"}"

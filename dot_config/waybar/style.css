@@ -120,21 +120,11 @@ tooltip label {
 }
 
 #custom-updates { 
-    color: @green; /* Fixed from @magenta */
+    color: @blue;
     padding: 0 5px;
     background-color: @bg1;
     border-radius: 12px;
     margin: 3px;
-}
-
-#custom-ssh.connected {
-    color: @red; /* Nord Frost Blue */
-    background-color: @bg1;
-    border-radius: 12px;
-    padding: 0 5px;
-    margin: 3px;
-    font-size: 1.2rem;
-
 }
 
 #custom-updates.uptodate {
@@ -154,8 +144,17 @@ tooltip label {
     font-weight: bold;
 }
 
+#custom-ssh.connected {
+    color: @orange;
+    background-color: @bg1;
+    border-radius: 12px;
+    padding: 0 5px;
+    margin: 3px;
+    font-size: 1.2rem;
+}
+
 #network { 
-    color: @green; /* Nord Aurora Green */
+    color: @green;
     min-width: 190px;
     background-color: @bg1;
     border-radius: 12px;
@@ -172,6 +171,14 @@ tooltip label {
 
 #pulseaudio { 
     color: @aqua;
+    padding: 0 5px;
+    background-color: @bg1;
+    border-radius: 12px;
+    margin: 3px;
+}
+
+#language {
+    color: @purple;
     padding: 0 5px;
     background-color: @bg1;
     border-radius: 12px;
